@@ -38,3 +38,5 @@ int main()
    
 	return 0;
 }
+
+//g++ -o videoRec videoRec.cpp $(pkg-config opencv --libs --cflags)
