@@ -87,6 +87,7 @@ int main()
         return 1;
     }
 
+<<<<<<< HEAD
     while(dfget(MP))
     {
         if(strcmp(MP->mountdir, "/") == 0){
@@ -100,4 +101,19 @@ int main()
     }
     printf("=========================\n\n");
 
+=======
+    while(1)
+    {
+        while(dfget(MP))
+        {
+            printf("%-14s%-20s%10lu%10lu\n empty: %.2f", MP->mountdir, MP->devname, 
+                                MP->size.blocks,
+                                MP->size.avail,
+                                (double)MP->size.avail*100/MP->size.blocks
+                                );
+        }
+        printf("=========================\n\n");
+        sleep(1);
+    }
+>>>>>>> 2b2d1696f63de521f4e1f7420edde2db9415eded
 }

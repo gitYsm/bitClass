@@ -89,9 +89,10 @@ int main()
 		
 	
 		//Mat img6(480, 640, CV_8UC3, Scalar(0,0,0));
+		int thickness = 2;
+		Point textOrg(10, (size.height) - 10);
 		while(1)
 		{
-			int version = 0;
 			//cap.read(img_color);
 			cap >> img_color;
 			if (img_color.empty()) {
@@ -104,11 +105,10 @@ int main()
             //frame에 시간 넣기
             // center the text
 			//Point textOrg((test.cols - size.width)/2,(test.rows + size.height)/2);
-			Point textOrg(10, (size.height) - 10);
-
+			
 			t = localtime(&end);
 			sprintf(imgString,"%d-%.2d-%.2d %.2d:%.2d:%.2d",t->tm_year + 1900,(t->tm_mon + 1),t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
-			int thickness = 2;
+			
 			putText(img_color, imgString, textOrg, FONT_HERSHEY_PLAIN, 2, Scalar::all(255), thickness, 8);
 	
 			if (img_color.empty()) {
@@ -119,7 +119,7 @@ int main()
 			imshow("Color", img_color);
 			writer.write(img_color);
 
-			if (waitKey(20) == 27)
+			if (waitKey(5) == 27)
 				break;
 			
 			result = (double)(end - start);

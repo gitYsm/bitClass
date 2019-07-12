@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+<<<<<<< HEAD
 #include <signal.h>
 void force_directory( char *a_dirc);
 //int mkdirs(const char *path, mode_t mode);
@@ -29,6 +30,30 @@ int main(){
     // strcat(dir, downFolder);
     // printf("buf: %s \n",dir);
 	
+=======
+
+void force_directory( char *a_dirc);
+int mkdirs(const char *path, mode_t mode);
+
+int main(){
+    printf("\n 폴더명 구하기");
+    char parentFolder[100];
+    char downFolder[100];
+    char dir[256] = "/home/ysm/bitClass/bBox";
+    time_t current;
+    current = time(NULL);
+    struct tm *t = localtime(&current);
+    printf("%d년 %d월 %d일 ",
+        1900 + t->tm_year, t->tm_mon + 1, t->tm_mday);
+
+    sprintf(parentFolder,"/%d%.2d%.2d",t->tm_year + 1900,(t->tm_mon + 1),t->tm_mday);
+    sprintf(downFolder,"/%d%.2d%.2d_%.2d",t->tm_year + 1900,(t->tm_mon + 1),t->tm_mday,t->tm_hour);
+    strcat(dir, parentFolder);
+    strcat(dir, downFolder);
+    printf("buf: %s \n",dir);
+	
+    force_directory(dir);
+>>>>>>> 2b2d1696f63de521f4e1f7420edde2db9415eded
 
 	
     return 0;
@@ -39,6 +64,7 @@ void  force_directory( char *a_dirc){
     char    buff[1024];
     int     sz_dirc;
     int     ndx;
+<<<<<<< HEAD
     
     char forderName[100];
     char dir[256] = "/home/ysm/bitClass/bRec";
@@ -51,6 +77,10 @@ void  force_directory( char *a_dirc){
     printf("buf: %s \n",dir);
     sz_dirc = strlen( dir);
 
+=======
+
+    sz_dirc = strlen( a_dirc);
+>>>>>>> 2b2d1696f63de521f4e1f7420edde2db9415eded
     for ( ndx = 1; ndx < sz_dirc; ndx++){
         if ( '/' == a_dirc[ndx]){
             a_dirc[ndx] = '\0';
@@ -66,8 +96,11 @@ void  force_directory( char *a_dirc){
     }
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2b2d1696f63de521f4e1f7420edde2db9415eded
 // int mkdirs(const char *path, mode_t mode)
 // {
 //     char tmp_path[2048];
